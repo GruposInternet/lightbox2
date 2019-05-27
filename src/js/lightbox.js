@@ -137,6 +137,12 @@
     });
 
     this.$outerContainer.on('click', function(event) {
+      
+      var link = $(event.target).data('href');
+      if (link)
+      {
+        window.open(link);
+      }
       if ($(event.target).attr('id') === 'lightbox') {
         self.end();
       }
@@ -209,7 +215,8 @@
       self.album.push({
         alt: $link.attr('data-alt'),
         link: $link.attr('href'),
-        title: $link.attr('data-title') || $link.attr('title')
+        title: $link.attr('data-title') || $link.attr('title'),
+        target: $link.attr('data-href')
       });
     }
 
@@ -458,9 +465,13 @@
         $caption.text(this.album[this.currentImageIndex].title);
       } else {
         $caption.html(this.album[this.currentImageIndex].title);
-      }
+      }      
       $caption.fadeIn('fast');
     }
+
+    var $nav = this.$lightbox.find('.lb-nav');
+    console.log($nav);
+    $nav.attr('data-href',this.album[this.currentImageIndex].target)
 
     if (this.album.length > 1 && this.options.showImageNumberLabel) {
       var labelText = this.imageCountLabel(this.currentImageIndex + 1, this.album.length);
