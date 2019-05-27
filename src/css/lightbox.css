@@ -100,7 +100,7 @@ body.lb-disable-scrolling {
 }
 
 .lb-nav a.lb-prev {
-  width: 34%;
+  width: 20%;
   left: 0;
   float: left;
   background: url(../images/prev.png) left 48% no-repeat;
@@ -118,7 +118,7 @@ body.lb-disable-scrolling {
 }
 
 .lb-nav a.lb-next {
-  width: 64%;
+  width: 20%;
   right: 0;
   float: right;
   background: url(../images/next.png) right 48% no-repeat;
